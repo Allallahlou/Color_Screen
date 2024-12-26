@@ -1,6 +1,5 @@
 # color_screen
-                                                                                                                                              Color Game
-**Color Game for Kids**: A fun and innovative educational app using Flutter that helps kids learn colors in an interactive way. It has a set of colored squares, and when you tap on any square, a new color appears. This app helps enhance kids' color recognition in a fun and engaging way. 🎨✨
+  **Color Game for Kids**: A fun and innovative educational app using Flutter that helps kids learn colors in an interactive way. It has a set of colored squares, and when you tap on any square, a new color appears. This app helps enhance kids' color recognition in a fun and engaging way. 🎨✨
 
 ## Getting Started
 
