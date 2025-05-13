@@ -1,15 +1,114 @@
+<h1 align="center">👋 Hi, I'm Allal Lahlou</h1>
+<h3 align="center"> 💻 Mobile App Developer using Flutter & Dart</h3>
+
 # color_screen
   **Color Game for Kids**: A fun and innovative educational app using Flutter that helps kids learn colors in an interactive way. It has a set of colored squares, and when you tap on any square, a new color appears. This app helps enhance kids' color recognition in a fun and engaging way. 🎨✨
 
-## Getting Started
+## 🏆 Achievements & Certifications
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=allallahlou&label=Profile%20views&color=0e75b6&style=flat" alt="allallahlou" />
+</p>
 
-This project is a starting point for a Flutter application.
+<p align="center">
+  <a href="https://github.com/ryo-ma/github-profile-trophy">
+    <img src="https://github-profile-trophy.vercel.app/?username=allallahlou" alt="Trophies" />
+  </a>
+</p>
 
-A few resources to get you started if this is your first Flutter project:
+<p align="center">
+  <a href="https://twitter.com/samil28864" target="blank">
+    <img src="https://img.shields.io/twitter/follow/samil28864?logo=twitter&style=for-the-badge" alt="Twitter" />
+  </a>
+</p>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🚀 Projects
+
+- 🕰️ **[Watch Selling App](https://github.com/Allallahlou/App_E-eccommerce)**
+- 🎨 **[Colors Game Application](https://github.com/Allallahlou/Color_Screen)**
+- 🧮 **[Calculator](https://github.com/Allallahlou/CalculatrisApp)**
+
+🌐 All of my projects are available at: [https://allaldev.odoo.com/](https://allaldev.odoo.com/)
+
+---
+
+### 💬 About Me
+
+✅ **Mobile app developer** using **Flutter & Dart** with **+2 years experience**  
+✅ Back-end skills using **Node.js & Express**  
+🎯 Focused on **UX**, performance, and clean architecture  
+🧠 Always learning, always improving
+
+** 🛠️ Key Skills:**
+
+- ⚙️ Flutter & Dart – Cross-platform apps (Android & iOS)  
+- 🌐 Node.js & Express – Robust backend APIs  
+- 🎨 Responsive UI & Modern Design  
+- ☁️ Firebase, SQLite – Local & Cloud storage  
+- 🔗 REST API consumption & creation  
+- 🔄 State management: Provider, Bloc, Riverpod  
+- 🗺️ Integration: Maps, Notifications, Uploads  
+- 🧼 Clean & Maintainable Code
+
+🧠 **Personality Traits**: Meticulous, Organized
+
+📧 **Gmail**: Allal.lahlou5@gmail.com
+
+---
+
+### 🤝 Connect with Me
+
+<p align="left">
+<a href="https://dev.to/allal_lahlou_4f7feb0e549a" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/devto.svg" width="30" /></a>
+<a href="https://twitter.com/samil28864" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/twitter.svg" width="30" /></a>
+<a href="https://www.linkedin.com/in/allallahlouofficiel/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" width="30" /></a>
+<a href="https://stackoverflow.com/users/26385108/allal-lahlou" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/stack-overflow.svg" width="30" /></a>
+<a href="https://web.facebook.com/allallahlouofficiel1/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" width="30" /></a>
+<a href="https://www.instagram.com/allallahlouofficiel/" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" width="30" /></a>
+<a href="https://dribbble.com/account/profile" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/dribbble.svg" width="30" /></a>
+<a href="https://medium.com/@allal.lahlou5" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/medium.svg" width="30" /></a>
+<a href="https://www.youtube.com/@allallahlouofficial" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" width="30" /></a>
+<a href="https://discord.com/channels/@me" target="blank"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/discord.svg" width="30" /></a>
+</p>
+
+---
+
+### 🛠️ Languages and Tools
+
+<p align="left">
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/flutter/flutter-original.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original-wordmark.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" width="40" />
+<img src="https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/swift/swift-original.svg" width="40" />
+<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/photoshop/photoshop-line.svg" width="40" />
+</p>
+
+---
+
+## 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=allallahlou&show_icons=true&locale=en" alt="allallahlou stats" />
+  <img src="https://github-readme-stats.vercel.app/api/top-langs?username=allallahlou&show_icons=true&locale=en&layout=compact" alt="Top Languages" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=allallahlou&" alt="GitHub Streak" />
+</p>
+
+---
+## 📺 YouTube Channel
+
+- 🎥 [Allal Lahlou Official](https://www.youtube.com/@allallahlouofficial)
+
+---
+
