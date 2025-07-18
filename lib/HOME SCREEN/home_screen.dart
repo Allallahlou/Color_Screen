@@ -23,7 +23,9 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(10),
                     gradient:
                         LinearGradient(begin: Alignment.bottomRight, colors: [
+                      // ignore: deprecated_member_use
                       Colors.black.withOpacity(.9),
+                      // ignore: deprecated_member_use
                       Colors.black.withOpacity(.5),
                     ])),
                 child: const Text(
