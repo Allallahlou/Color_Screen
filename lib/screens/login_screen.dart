@@ -13,12 +13,24 @@ class _LoginScreenState extends State<LoginScreen> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  void login() async {
-    String email = emailController.text;
+  bool isLoading = false;
+
+  Future<void> login() async {
+    String email = emailController.text.trim();
     String password = passwordController.text;
 
-    var url = Uri.parse('http://192.168.16.1:5000/login'); // عدلي هنا حسب IP ديالك
+    if (email.isEmpty || password.isEmpty) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Please fill in all fields")),
+      );
+      return;
+    }
+
     try {
+      setState(() => isLoading = true);
+
+      var url =
+          Uri.parse('http://192.168.1.8:8000/login'); // عدلها حسب IP سيرفرك
       var response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
@@ -29,30 +41,31 @@ class _LoginScreenState extends State<LoginScreen> {
       );
 
       var result = jsonDecode(response.body);
-      if (response.statusCode == 201) {
-        // تسجيل دخول ناجح
-        print(result['message']);
-        // انتقلي للشاشة الرئيسية مثلاً
-        Navigator.pushNamed(context, '/home');
-      } else {
-        // فشل تسجيل الدخول
-        print(result['message']);
+
+      if (response.statusCode == 200) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(result['message'])),
+          SnackBar(content: Text(result['message'] ?? 'Login successful')),
+        );
+        Navigator.pushReplacementNamed(
+            context, '/home'); // عدلها للشاشة الرئيسية
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text(result['message'] ?? 'Login failed')),
         );
       }
     } catch (e) {
-      print('Error: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Failed to connect to server')),
+        SnackBar(content: Text('Error: $e')),
       );
+    } finally {
+      setState(() => isLoading = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Center(child: const Text('Login'))),
+      appBar: AppBar(title: const Center(child: Text('Login'))),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -66,6 +79,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 labelText: 'Email',
                 border: OutlineInputBorder(),
               ),
+              keyboardType: TextInputType.emailAddress,
             ),
             const SizedBox(height: 15),
             TextField(
@@ -78,8 +92,17 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
             const SizedBox(height: 25),
             ElevatedButton(
-              onPressed: login,
-              child: const Text('Login'),
+              onPressed: isLoading ? null : login,
+              child: isLoading
+                  ? const SizedBox(
+                      width: 24,
+                      height: 24,
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                        strokeWidth: 2,
+                      ),
+                    )
+                  : const Text('Login'),
             ),
             const SizedBox(height: 15),
             TextButton(

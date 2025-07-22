@@ -1,44 +1,63 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from fastapi import FastAPI, HTTPException, status
+from pydantic import BaseModel
 from werkzeug.security import generate_password_hash, check_password_hash
+from fastapi.middleware.cors import CORSMiddleware
 
-app = Flask(__name__)
-CORS(app, resources={r"/*": {"origins": "http://localhost:57666"}})
+app = FastAPI()
+print("Server started... ✅")
 
+# CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
-# قاعدة بيانات مؤقتة في الذاكرة
-users = {}
+# In-memory "fake database"
+users_db = []
 
-@app.route("/signup", methods=["POST", "OPTIONS"])
-def signup():
-    if request.method == "OPTIONS":
-        return '', 200
-    data = request.get_json()
-    email = data.get("email")
-    if email in users:
-        return jsonify({"message": "Email already registered"}), 400
-    
-    users[email] = {
-        "first_name": data.get("first_name"),
-        "last_name": data.get("last_name"),
-        "email": email,
-        "password": generate_password_hash(data.get("password"))
+# Pydantic Models
+class SignupData(BaseModel):
+    email: str
+    password: str
+    username: str
+
+class LoginData(BaseModel):
+    email: str
+    password: str
+
+# 🔐 Signup Endpoint
+@app.post("/signup", status_code=status.HTTP_201_CREATED)
+def signup(data: SignupData):
+    if any(user["email"] == data.email for user in users_db):
+        raise HTTPException(status_code=400, detail="Email already registered")
+
+    hashed_password = generate_password_hash(data.password)
+    new_user = {
+        "id": len(users_db) + 1,
+        "email": data.email,
+        "username": data.username,
+        "password": hashed_password
     }
-    return jsonify({"message": "Signup successful"}), 201
+    users_db.append(new_user)
 
-@app.route("/login", methods=["POST", "OPTIONS"])
-def login():
-    if request.method == "OPTIONS":
-        return '', 200
-    data = request.get_json()
-    email = data.get("email")
-    password = data.get("password")
+    return {"message": "User created successfully", "user_id": new_user["id"]}
 
-    user = users.get(email)
-    if user and check_password_hash(user["password"], password):
-        return jsonify({"message": "Login successful"}), 200
-    return jsonify({"message": "Invalid email or password"}), 401
+# 🔑 Login Endpoint
+@app.post("/login")
+def login(data: LoginData):
+    user = next((u for u in users_db if u["email"] == data.email), None)
+    if not user or not check_password_hash(user["password"], data.password):
+        raise HTTPException(status_code=401, detail="Invalid email or password")
+    
+    return {
+        "message": "Login successful",
+        "user_id": user["id"],
+        "username": user["username"],
+    }
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
-
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)

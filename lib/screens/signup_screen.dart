@@ -10,24 +10,21 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
-  final firstNameController = TextEditingController();
-  final lastNameController = TextEditingController();
+  final usernameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final repeatPasswordController = TextEditingController();
 
-  bool isLoading = false; // ⬅️ هنا التعريف
+  bool isLoading = false;
 
   Future<void> signup() async {
-    String firstName = firstNameController.text.trim();
-    String lastName = lastNameController.text.trim();
+    String username = usernameController.text.trim();
     String email = emailController.text.trim();
     String password = passwordController.text;
     String repeatPassword = repeatPasswordController.text;
 
-    if (firstName.isEmpty ||
-        lastName.isEmpty ||
-        email.isEmpty ||
+    if (email.isEmpty ||
+        username.isEmpty ||
         password.isEmpty ||
         repeatPassword.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -44,17 +41,16 @@ class _SignupScreenState extends State<SignupScreen> {
     }
 
     try {
-      setState(() => isLoading = true); // ⬅️ تفعيل التحميل
+      setState(() => isLoading = true);
 
-      var url = Uri.parse('http://192.168.1.5:5000/signup');
+      var url = Uri.parse('http://192.168.1.8:8000/signup');
       var response = await http.post(
         url,
         headers: {'Content-Type': 'application/json'},
         body: jsonEncode({
-          'first_name': firstName,
-          'last_name': lastName,
           'email': email,
           'password': password,
+          'username': username,
         }),
       );
 
@@ -75,14 +71,14 @@ class _SignupScreenState extends State<SignupScreen> {
         SnackBar(content: Text('Error: $e')),
       );
     } finally {
-      setState(() => isLoading = false); // ⬅️ إيقاف التحميل دائماً
+      setState(() => isLoading = false);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Sign Up')),
+      appBar: AppBar(title: const Center(child: Text('Sign Up'))),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20),
         child: Column(
@@ -92,17 +88,9 @@ class _SignupScreenState extends State<SignupScreen> {
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold)),
             const SizedBox(height: 30),
             TextField(
-              controller: firstNameController,
+              controller: usernameController,
               decoration: const InputDecoration(
-                labelText: 'First Name',
-                border: OutlineInputBorder(),
-              ),
-            ),
-            const SizedBox(height: 15),
-            TextField(
-              controller: lastNameController,
-              decoration: const InputDecoration(
-                labelText: 'Last Name',
+                labelText: 'Username',
                 border: OutlineInputBorder(),
               ),
             ),
@@ -134,8 +122,6 @@ class _SignupScreenState extends State<SignupScreen> {
               ),
             ),
             const SizedBox(height: 25),
-
-            // زر التسجيل مع إظهار لودينغ
             ElevatedButton(
               onPressed: isLoading ? null : signup,
               style: ElevatedButton.styleFrom(
