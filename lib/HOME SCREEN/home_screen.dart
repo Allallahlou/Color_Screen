@@ -1,6 +1,9 @@
+import 'dart:ui';
+
 import 'package:color_screen/COLOR%20SCREEN/color_screen.dart';
+import 'package:color_screen/COMPONENTS/components.dart';
+import 'package:color_screen/screens/login_screen.dart';
 import 'package:flutter/material.dart';
-import '../COMPONENTS/components.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -14,27 +17,19 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        title: Center(
-            child: Container(
-                padding: const EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    gradient:
-                        LinearGradient(begin: Alignment.bottomRight, colors: [
-                      // ignore: deprecated_member_use
-                      Colors.black.withOpacity(.9),
-                      // ignore: deprecated_member_use
-                      Colors.black.withOpacity(.5),
-                    ])),
-                child: const Text(
-                  'Color Game',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ))),
+        title: Center(child: const Text('Color Game')),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            tooltip: 'Deconnecte',
+            onPressed: () {
+              // هنا تضع كود تسجيل الخروج حسب تطبيقك
+              Navigator.of(context).pushAndRemoveUntil(
+                  MaterialPageRoute(builder: (context) => const LoginScreen()),
+                  (Route<dynamic> route) => false);
+            },
+          ),
+        ],
       ),
       body: Container(
         margin: const EdgeInsets.all(10),
@@ -47,13 +42,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ColorScreen(colorItem)));
+                              builder: (context) => ColorScreen(colorItem: colorItem, showArabic: true,)));
                     },
                     child: Container(
-                      margin: const EdgeInsets.only(
-                          top: 5, bottom: 10, right: 10, left: 10),
+                      margin: const EdgeInsets.all(10),
                       decoration: BoxDecoration(
-                          color: colorItem,
+                          color: colorItem.color,
                           borderRadius: BorderRadius.circular(10),
                           boxShadow: const [
                             BoxShadow(
@@ -62,6 +56,23 @@ class _HomeScreenState extends State<HomeScreen> {
                               blurRadius: 4,
                             )
                           ]),
+                      child: Center(
+                        child: Text(
+                          colorItem.name,
+                          textAlign: TextAlign.center,
+                          style: const TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            shadows: [
+                              Shadow(
+                                blurRadius: 3,
+                                color: Colors.black54,
+                                offset: Offset(1, 1),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ))
               .toList(),
