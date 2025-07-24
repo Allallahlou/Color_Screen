@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:color_screen/COLOR%20SCREEN/color_screen.dart';
 import 'package:color_screen/COMPONENTS/components.dart';
 import 'package:color_screen/screens/login_screen.dart';
@@ -17,7 +15,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: const Text('Color Game')),
+        title: const Center(child: Text('Color Game')),
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),

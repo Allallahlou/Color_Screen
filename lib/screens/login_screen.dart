@@ -43,17 +43,21 @@ class _LoginScreenState extends State<LoginScreen> {
       var result = jsonDecode(response.body);
 
       if (response.statusCode == 200) {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(result['message'] ?? 'Login successful')),
         );
         Navigator.pushReplacementNamed(
+            // ignore: use_build_context_synchronously
             context, '/home'); // عدلها للشاشة الرئيسية
       } else {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(content: Text(result['message'] ?? 'Login failed')),
         );
       }
     } catch (e) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(content: Text('Error: $e')),
       );

@@ -1,5 +1,4 @@
 // ملف color_screen.dart
-
 import 'package:color_screen/COMPONENTS/components.dart';
 import 'package:flutter/material.dart';
 

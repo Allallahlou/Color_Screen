@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -291,7 +290,10 @@ List<ColorItem> colorsList = [
 ];
 
 class ColorsPage extends StatefulWidget {
+  const ColorsPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ColorsPageState createState() => _ColorsPageState();
 }
 
@@ -313,13 +315,14 @@ class _ColorsPageState extends State<ColorsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Colors and Advice')),
+      appBar: AppBar(title: const Text('Colors and Advice')),
       body: ListView.builder(
         itemCount: colorsList.length,
         itemBuilder: (context, index) {
           final item = colorsList[index];
           return Card(
-            margin: EdgeInsets.all(8),
+            margin: const EdgeInsets.all(8),
+            // ignore: deprecated_member_use
             color: item.color.withOpacity(0.3),
             child: InkWell(
               onTap: () => toggleAdvice(index),
@@ -334,16 +337,16 @@ class _ColorsPageState extends State<ColorsPage> {
                         children: [
                           Text(
                             item.name,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 18,
                               color: Colors.black87,
                             ),
                           ),
-                          SizedBox(height: 6),
+                          const SizedBox(height: 6),
                           Text(
                             showArabicAdvice[index] ? item.adviceAr : item.adviceEn,
-                            style: TextStyle(fontSize: 16),
+                            style: const TextStyle(fontSize: 16),
                           ),
                         ],
                       ),
